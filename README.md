@@ -45,6 +45,10 @@ pip install -r requirements.txt
 
 Você precisará criar os seguintes templates na pasta `prospect_crud/app/templates/app/`:
 
+`login.html`
+`register.html`
+`logout.html`
+
 1. `lead_list.html`: Página principal com lista de todos os leads
 2. `lead_form.html`: Formulário para criar/editar leads
 3. `lead_detail.html`: Página de detalhes do lead
