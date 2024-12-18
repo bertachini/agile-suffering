@@ -1,4 +1,5 @@
 /venv
+venv/
 __pycache__/
 *.py[cod]
 *.so
@@ -18,4 +19,3 @@ db.sqlite3
 .vscode/
 *.swp
 *.swo
-

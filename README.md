@@ -12,9 +12,28 @@ python -m venv venv
 No Linux/Mac
 python3 -m venv venv
 
+2. Carregue o venv
+
+No Ruindows
+venv\Scripts\activate
+
+No Linux
+source venv/bin/activate
+
 3. Instale as dependências:
 
 pip install -r requirements.txt
+
+4. Popule o Banco de Dados
+
+python manage.py migrate
+
+2. Execute o Webserver
+
+python manage.py runserver
+
+
+
 
 ## Estrutura do Projeto
 
@@ -57,16 +76,5 @@ Você precisará criar os seguintes templates na pasta `prospect_crud/app/templa
 Também é necessário criar um template base em `prospect_crud/templates/base.html`
 
 Use o ChatGPT pra te ajudar. É preciso criar os testes de cada endpoint (cada função das views) 
-
-cada template será mapeado a uma view. geralmente a função da view é chamada no formulário html do template.
-
-## Configuração do Banco de Dados
-
-1. Aplique as migrações:
-
-python manage.py makemigrations
-python manage.py migrate
-
-Acesse o sistema em: `http:/localhost:8000/leads/`
-
+cada template será mapeado a uma view. geralmente a função da view é chamada no formulário html do template
 
