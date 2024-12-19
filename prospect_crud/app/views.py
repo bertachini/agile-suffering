@@ -4,6 +4,13 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from .models import Lead
 from django.contrib import messages
+from django.shortcuts import render, redirect
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib import messages
+
+def home(request):
+    return render(request, 'home.html')  # Certifique-se de que 'home.html' existe no diretório de templates.
 
 # Funções de autenticação
 def register_user(request):
@@ -20,6 +27,7 @@ def register_user(request):
         form = UserCreationForm()
     return render(request, 'app/register.html', {'form': form})
 
+
 def login_user(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
@@ -34,7 +42,9 @@ def login_user(request):
         messages.error(request, 'Usuário ou senha inválidos.')
     else:
         form = AuthenticationForm()
-    return render(request, 'app/login.html', {'form': form})
+    return render(request, 'login.html', {'form': form})
+
+
 
 # Adicione o decorador @login_required para todas as views que precisam de autenticação
 @login_required

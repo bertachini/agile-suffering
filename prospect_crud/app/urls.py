@@ -8,10 +8,13 @@ urlpatterns = [
     path('login/', views.login_user, name='login'),
     path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
     
+    # Página inicial
+    path('', views.home, name='home'),  # Rota para 'home'
+
     # URLs existentes
-    path('', views.lead_list, name='lead_list'),
-    path('create/', views.lead_create, name='lead_create'),
-    path('<int:pk>/update/', views.lead_update, name='lead_update'),
-    path('<int:pk>/delete/', views.lead_delete, name='lead_delete'),
-    path('<int:pk>/', views.lead_detail, name='lead_detail'),
-] 
+    path('leads/', views.lead_list, name='lead_list'),
+    path('leads/create/', views.lead_create, name='lead_create'),
+    path('leads/<int:pk>/update/', views.lead_update, name='lead_update'),
+    path('leads/<int:pk>/delete/', views.lead_delete, name='lead_delete'),
+    path('leads/<int:pk>/', views.lead_detail, name='lead_detail'),
+]

@@ -55,8 +55,8 @@ ROOT_URLCONF = 'prospect_crud.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
-        'APP_DIRS': True,
+        'DIRS': [BASE_DIR / "templates"],  # Diretório global para templates
+        'APP_DIRS': True,  # Habilita busca automática nos diretórios templates dos apps
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -67,6 +67,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'prospect_crud.wsgi.application'
 
