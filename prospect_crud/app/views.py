@@ -25,7 +25,7 @@ def register_user(request):
             messages.error(request, 'Erro no registro. Por favor, verifique os dados.')
     else:
         form = UserCreationForm()
-    return render(request, 'app/register.html', {'form': form})
+    return render(request, 'register.html', {'form': form})
 
 
 def login_user(request):
