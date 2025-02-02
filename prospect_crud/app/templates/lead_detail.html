@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Lead Details - {{ lead.name }}{% endblock %}
+
+{% block content %}
+<div class="detail-container">
+    <div class="detail-card">
+        <div class="detail-header">
+            <h1>Lead Details</h1>
+            <div class="detail-actions">
+                <a href="{% url 'lead_update' lead.pk %}" class="btn btn-warning">Edit Lead</a>
+                <a href="{% url 'lead_delete' lead.pk %}" class="btn btn-danger">Delete Lead</a>
+            </div>
+        </div>
+
+        <div class="detail-content">
+            <div class="detail-section">
+                <h2>Basic Information</h2>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <label>Name</label>
+                        <p>{{ lead.name }}</p>
+                    </div>
+                    <div class="detail-item">
+                        <label>Email</label>
+                        <p>{{ lead.email }}</p>
+                    </div>
+                    <div class="detail-item">
+                        <label>Phone</label>
+                        <p>{{ lead.phone|default:"-" }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-section">
+                <h2>Social Media</h2>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <label>WhatsApp</label>
+                        <p>{{ lead.whatsapp|default:"-" }}</p>
+                    </div>
+                    <div class="detail-item">
+                        <label>Facebook</label>
+                        <p>{{ lead.facebook|default:"-" }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-footer">
+            <a href="{% url 'lead_list' %}" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+</div>
+{% endblock %} 

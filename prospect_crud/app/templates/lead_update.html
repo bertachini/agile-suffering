@@ -1,11 +1,10 @@
 {% extends 'base.html' %}
 
-{% block title %}Login{% endblock %}
+{% block title %}Update Lead - {{ lead.name }}{% endblock %}
 
 {% block content %}
-<div class="auth-container">
-    <div class="auth-card">
-        <h1>Login</h1>
+    <div class="form-container">
+        <h1>Update Lead</h1>
         
         {% if messages %}
         <div class="messages">
@@ -16,9 +15,10 @@
             {% endfor %}
         </div>
         {% endif %}
-        
-        <form method="post" class="auth-form">
+
+        <form method="post">
             {% csrf_token %}
+            
             {% for field in form %}
             <div class="form-group">
                 <label for="{{ field.id_for_label }}">{{ field.label }}</label>
@@ -30,14 +30,11 @@
                 {% endif %}
             </div>
             {% endfor %}
+            
             <div class="form-actions">
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="btn btn-primary">Update Lead</button>
+                <a href="{% url 'lead_list' %}" class="btn btn-secondary">Cancel</a>
             </div>
         </form>
-        <div class="auth-links">
-            <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
-        </div>
     </div>
-</div>
-{% endblock %}
-
+{% endblock %} 
